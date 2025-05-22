@@ -4,7 +4,7 @@ import styles from '../Styles.module.css';
 
 type UpdateRouteProps = {
     oldTitle: string;
-    callBack: () => void;
+    callBack: (newTitle: string) => void;
 };
 
 export const UpdateItem = ({ oldTitle, callBack }: UpdateRouteProps) => {
@@ -12,14 +12,14 @@ export const UpdateItem = ({ oldTitle, callBack }: UpdateRouteProps) => {
     const [newTitle, setNewTitle] = useState(oldTitle);
 
     const editHandler = () => {
-        alert('Двоечники подсказали, что и в локальном стейте сойдет!')
+        callBack(newTitle)
         setEdit(false);
           };
 
        return (
         edit
             ? <Input newTitle={newTitle} setNewTitle={setNewTitle} editHandler={editHandler}/>
-            : <span className={styles.hoverEffect} onDoubleClick={() => setEdit(true)}>{newTitle}</span>
+            : <span className={styles.hoverEffect} onDoubleClick={() => setEdit(true)}>{oldTitle}</span>
     );
 };
 

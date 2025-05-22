@@ -1,11 +1,11 @@
 import {ChangeEvent} from 'react';
 
 type CheckBoxProps={
-    isDone:boolean
-    updateCheckBox:(isDone:boolean)=>void
+    isDone: boolean
+    updateCheckBox:( isBooked: boolean) => void
 }
 export const CheckBox = ({isDone,updateCheckBox}:CheckBoxProps) => {
-    const onChangeHandler=(e:ChangeEvent<HTMLInputElement>)=>{
+    const onChangeHandler=(e:ChangeEvent<HTMLInputElement>) => {
         updateCheckBox(e.currentTarget.checked)
     }
     return (

@@ -15,9 +15,9 @@ export type FlightProps = {
     date: string;
     flightTableID: string;
     routes: RouteType[];
-    toggleFTIsBooked: (flightID: string, routeID: string) => void;
+    toggleFTIsBooked: (flightID: string, routeID: string, isBooked: boolean) => void;
     removeFT: (flightID: string) => void;
-    updateFTDate: (flightID: string, newDate: string) => void;
+    updateFTDate: (flightTableID: string, newDate: string) => void;
     updateFTRoutesFrom: (flightID: string, routeID: string, newFrom: string) => void;
     updateFTRoutesTo: (flightID: string, routeID: string, newTo: string) => void;
     removeFTRoute: (flightTableID: string, routeID: string) => void
@@ -66,7 +66,7 @@ export const FlightTable = ({
             <Button title="Remove FlightTable" onClick={removeFlightTableHandler}/>
             <h2 className={styles.headerFT}>FlightTable ID: </h2>
             <h2 className={styles.dateHeader}>
-                Date: <UpdateItem oldTitle={date} callBack={()=>'updateFTDateHandler'}/>
+                Date: <UpdateItem oldTitle={date} callBack={updateFTDateHandler}/>
             </h2>
             <div className={styles.addNewRouteContainer}>
                 <AddNewItem
